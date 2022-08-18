@@ -494,3 +494,24 @@ workflows:
     jobs:
       - build
 ```
+
+[#multiarchitecture-clusters]
+=== Does container-agent support ARM64 docker images?
+
+Yes, container agent supports both AMD64 and ARM64 docker images, as well as kubernetes clusters that use a mixture of AMD64 and ARM64 nodes. When deployed in a cluster with a mixed node CPU architecture, different resource classes will need to be configured to target a specific node architecture. Kubernetes provides several node labels automatically than can be helpful in configuring the pod specifications for a resource class to target the correct node as shown n the example below. More information about these labels can be found in the link:https://kubernetes.io/docs/reference/labels-annotations-tains/[kubernetes documentation]. 
+
+```yaml
+
+resource_classes:
+   my-namespace/my-amd64-runner:
+      token: abcd1234
+      spec:
+         nodeAffinity: # nodeAffinity will cause this resource class to only create pods on nodes with the specified labels and values
+            kubernetes.io/arch=amd64
+
+   my-namespace/my-arm64-runner:
+      token: 1234abcd
+      spec:
+         nodeAffinity:
+            kubernetes.io/arch=arm64
+```
