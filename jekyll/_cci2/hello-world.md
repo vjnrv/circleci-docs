@@ -6,17 +6,25 @@ description: "First project on CircleCI"
 categories: [getting-started]
 order: 4
 redirect_from: /examples-intro/
-version:
-- Cloud
-- Server v4.x
-- Server v3.x
-- Server v2.x
+tags:
+  platform:
+    - Cloud
+    - Server v4.x
+    - Server v3.x
+    - Server v2.x
+  plan:
+    - free
+    - performance
+    - scale
+    - server
+  ranking:
+    - essential
 ---
 
 This document describes how to get started with a basic build of your Linux, Android, Windows, or macOS project on CircleCI after you [sign up]({{ site.baseurl }}/first-steps/).
 
 ## Echo hello world on Linux
-{: #echo-hello-world-on-linux }
+{: #echo-hello-world-on-linux data-tags-platform="cloud,Server v4.x" data-tags-plan="free,scale"}
 
 This example adds a job called `build` that spins up a container running a [pre-built CircleCI Docker image for Node]({{ site.baseurl }}/circleci-images/#nodejs). Then, it runs a simple `echo` command. To get started, complete the following steps:
 
