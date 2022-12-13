@@ -100,19 +100,19 @@ steps:
       name: Check Ruby shell
       shell: ruby
       command: puts 'hi'
- ```
- 
- **Node**
+```
+
+**Node**
 
 ```yaml
 steps:
- - run:
-    name: Check Node shell
-    shell: node
-    command: console.log("node")
- ```
+  - run:
+      name: Check Node shell
+      shell: node
+      command: console.log("node")
+```
 
-  **Python**
+**Python**
 
 ```yaml
 steps:
